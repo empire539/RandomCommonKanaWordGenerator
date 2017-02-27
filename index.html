@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Random Common Hiragana Word Generator</title>
 </head>
 <body>
-    <h1>Random Common Hiragana Word Generator</h1>
-    <p>Generates a number of random words in hiragana.</p>
+    <h1>Random Common Kana Word Generator</h1>
+    <p>Generates a number of random words in kana.</p>
     <p>Number of words to generate (0-1000): 
-      <input id="numWordsTxt" type="number" min="0" max="1000"/></p>
-    <button id="generate">Generate</button>
+      <input id="numWordsTxt" type="number" min="0" max="1000" value="10"/></p>
+    <button id="generateBtn">Generate</button>
     <br>
     <textarea id="genWordsArea"></textarea>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
