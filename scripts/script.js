@@ -10,6 +10,7 @@ $(document).ready(function() {
         cache:       false,
         success:     function(data) {
             wordlist = data.split("\n");
+            console.log(wordlist);
         }
     });
     
