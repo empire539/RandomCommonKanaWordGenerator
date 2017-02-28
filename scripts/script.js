@@ -9,7 +9,7 @@ $(document).ready(function() {
         dataType:    "text",
         cache:       false,
         success:     function(data) {
-            wordlist = data.split("\r\n");
+            wordlist = data.split("\n");
         }
     });
     
