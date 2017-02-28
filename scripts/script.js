@@ -1,21 +1,30 @@
 $(document).ready(function() {
-    // Load words into array
+    // Load words
     var wordlist = [];
+    var wordlist2 = [];
     
     $.ajax({
+        type: "GET",
+        url: "https://dl.dropboxusercontent.com/u/97316272/common.txt",
         contentType: 'text/plain; charset=utf-8',
-        url:         "data/common.txt",
-        type:        "GET",
-        dataType:    "text",
-        cache:       false,
-        success:     function(data) {
+        dataType: "text",
+        cache: false, 
+        success: function(data) {
             wordlist = data.split("\r\n");
         }
     });
     
     $('#generateBtn').click(function() {
-        console.log("click");
         var n = $('#numWordsTxt').val();
+        var errBox = $('#errBox');
+        if (n < 0 || n > 1000) {
+            errBox.html("Error: Value must be between 0 and 1000.");
+            return;
+        }
+        else {
+            errBox.html("");
+        }
+        
         var area = $('#genWordsArea');
         area.val(""); // clear textarea for next use
         
@@ -24,5 +33,4 @@ $(document).ready(function() {
             area.val(area.val() + wordlist[r] + " ");
         }
     });
-    
 });
