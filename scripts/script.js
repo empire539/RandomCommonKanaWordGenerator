@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Load words into array
+    // Load words
     var wordlist = [];
     
     $.ajax({
@@ -14,8 +14,16 @@ $(document).ready(function() {
     });
     
     $('#generateBtn').click(function() {
-        console.log("click");
         var n = $('#numWordsTxt').val();
+        var errBox = $('#errBox');
+        if (n < 0 || n > 1000) {
+            errBox.html("Error: Value must be between 0 and 1000.");
+            return;
+        }
+        else {
+            errBox.html("");
+        }
+        
         var area = $('#genWordsArea');
         area.val(""); // clear textarea for next use
         
