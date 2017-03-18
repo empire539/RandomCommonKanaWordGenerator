@@ -5,7 +5,7 @@ $(document).ready(function() {
     
     $.ajax({
         type: "GET",
-        url: "http://www.cjoint.com/doc/17_03/GCrx7PlcMbA_common.txt",
+        url: "https://raw.githubusercontent.com/empire539/RandomCommonKanaWordGenerator/master/data/common.txt",
         contentType: 'text/plain; charset=utf-8',
         dataType: "text",
         cache: false, 
