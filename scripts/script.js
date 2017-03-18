@@ -5,7 +5,7 @@ $(document).ready(function() {
     
     $.ajax({
         type: "GET",
-        url: "https://dl.dropboxusercontent.com/u/97316272/common.txt",
+        url: "http://www.cjoint.com/doc/17_03/GCrx7PlcMbA_common.txt",
         contentType: 'text/plain; charset=utf-8',
         dataType: "text",
         cache: false, 
