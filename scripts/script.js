@@ -50,18 +50,19 @@ $(document).ready(function() {
             else if (kana == 2) wlength = wordlist2.length;
             else if (kana == 1) wlength = wordlist.length;
             var r = Math.floor(Math.random() * (wlength));
-            if (kana == 3) {
-                if(r > wordlist.length) {
-                    area.val(area.val() + wordlist2[(r - wordlist.length)] + " ");
-                }
-                else if (r < wordlist.length){ 
-                    area.val(area.val() + wordlist[r] + " ");
-                }
-            } else if (kana == 2) {
-                area.val(area.val() + wordlist2[r] + " ");
-            } else if (kana == 1) {
-                area.val(area.val() + wordlist[r] + " ");
-            }
+            console.log(wordlist)
+            // if (kana == 3) {
+            //     if(r > wordlist.length) {
+            //         area.val(area.val() + wordlist2[(r - wordlist.length)] + " ");
+            //     }
+            //     else if (r < wordlist.length){ 
+            //         area.val(area.val() + wordlist[r] + " ");
+            //     }
+            // } else if (kana == 2) {
+            //     area.val(area.val() + wordlist2[r] + " ");
+            // } else if (kana == 1) {
+            //     area.val(area.val() + wordlist[r] + " ");
+            // }
         }
     });
 });
