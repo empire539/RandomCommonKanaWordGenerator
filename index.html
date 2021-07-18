@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Random Common Hiragana Word Generator</title>
-</head>
-<body>
-    <h1>Random Common Kana Word Generator</h1>
-    <p>Generates a number of random words in kana.</p>
-    <p>Number of words to generate (0-1000): 
-      <input id="numWordsTxt" type="number" min="0" max="1000" value="10"/></p>
-    <button id="generateBtn">Generate</button>
-    <div id="errBox" style="color: red"></div>
-    <br>
-    <textarea id="genWordsArea" style="width: 50%; height: 200px"></textarea>
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="scripts/script.js"></script>
-</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Random Common Hiragana Word Generator</title>
+    </head>
+    <body>
+        <h1>Random Common Kana Word Generator</h1>
+        <p>Generates a number of random words in kana.</p>
+        <p>Number of words to generate (0-1000): 
+        <input id="numWordsTxt" type="number" min="0" max="1000" value="10"/></p>
+        <input type="checkbox" id="hiragana" checked>
+        <label for="hiragana">Hiragana</label>
+        <input type="checkbox" id="katakana" checked>
+        <label for="katakana">Katakana</label>
+        <br>
+        <br>
+        <button id="generateBtn">Generate</button>
+        <div id="errBox" style="color: red"></div>
+        <br>
+        <textarea id="genWordsArea" style="width: 50%; height: 200px"></textarea>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="scripts/script.js"></script>
+    </body>
 </html>

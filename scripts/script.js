@@ -5,7 +5,7 @@ $(document).ready(function() {
     
     $.ajax({
         type: "GET",
-        url: "https://raw.githubusercontent.com/empire539/RandomCommonKanaWordGenerator/master/data/common.txt",
+        url: "http://127.0.0.1/data/hiragana_words.txt",
         contentType: 'text/plain; charset=utf-8',
         dataType: "text",
         cache: false, 
@@ -13,24 +13,55 @@ $(document).ready(function() {
             wordlist = data.split("\r\n");
         }
     });
-    
+    $.ajax({
+        type: "GET",
+        url: "http://127.0.0.1/data/katakana_words.txt",
+        contentType: 'text/plain; charset=utf-8',
+        dataType: "text",
+        cache: false, 
+        success: function(data) {
+            wordlist2 = data.split("\r\n");
+        }
+    });
     $('#generateBtn').click(function() {
         var n = $('#numWordsTxt').val();
+        var hira = document.getElementById('hiragana').checked;
+        var kata = document.getElementById('katakana').checked;
         var errBox = $('#errBox');
         if (n < 0 || n > 1000) {
             errBox.html("Error: Value must be between 0 and 1000.");
             return;
         }
+        if (hira == false && kata == false ) {
+            errBox.html("Error: None of the checkboxes were checked.")
+            return;
+        }
         else {
             errBox.html("");
         }
-        
+        var wlength;
+        var kana = 0;
+        if (hira == true) kana = kana + 1;
+        if (kata == true) kana = kana + 2;
         var area = $('#genWordsArea');
         area.val(""); // clear textarea for next use
-        
         for (var i = 0; i < n; i++) {
-            var r = Math.floor(Math.random() * wordlist.length);
-            area.val(area.val() + wordlist[r] + " ");
+            if (kana == 3) wlength = wordlist.length + wordlist2.length;
+            else if (kana == 2) wlength = wordlist2.length;
+            else if (kana == 1) wlength = wordlist.length;
+            var r = Math.floor(Math.random() * (wlength));
+            if (kana == 3) {
+                if(r > wordlist.length) {
+                    area.val(area.val() + wordlist2[(r - wordlist.length)] + " ");
+                }
+                else if (r < wordlist.length){ 
+                    area.val(area.val() + wordlist[r] + " ");
+                }
+            } else if (kana == 2) {
+                area.val(area.val() + wordlist2[r] + " ");
+            } else if (kana == 1) {
+                area.val(area.val() + wordlist[r] + " ");
+            }
         }
     });
 });
