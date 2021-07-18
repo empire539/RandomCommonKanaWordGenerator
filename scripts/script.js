@@ -5,7 +5,7 @@ $(document).ready(function() {
     
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1/data/hiragana_words.txt",
+        url: "https://thepiotug.github.io/Kana_Word_Gen_Check/data/hiragana_words.txt",
         contentType: 'text/plain; charset=utf-8',
         dataType: "text",
         cache: false, 
@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1/data/katakana_words.txt",
+        url: "https://thepiotug.github.io/Kana_Word_Gen_Check/data/katakana_words.txt",
         contentType: 'text/plain; charset=utf-8',
         dataType: "text",
         cache: false, 
