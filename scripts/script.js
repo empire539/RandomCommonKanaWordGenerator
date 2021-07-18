@@ -10,7 +10,7 @@ $(document).ready(function() {
         dataType: "text",
         cache: false, 
         success: function(data) {
-            wordlist = data.split("\r\n");
+            wordlist = data.split("\n");
         }
     });
     $.ajax({
@@ -20,7 +20,7 @@ $(document).ready(function() {
         dataType: "text",
         cache: false, 
         success: function(data) {
-            wordlist2 = data.split("\r\n");
+            wordlist2 = data.split("\n");
         }
     });
     $('#generateBtn').click(function() {
@@ -50,19 +50,18 @@ $(document).ready(function() {
             else if (kana == 2) wlength = wordlist2.length;
             else if (kana == 1) wlength = wordlist.length;
             var r = Math.floor(Math.random() * (wlength));
-            console.log(wordlist)
-            // if (kana == 3) {
-            //     if(r > wordlist.length) {
-            //         area.val(area.val() + wordlist2[(r - wordlist.length)] + " ");
-            //     }
-            //     else if (r < wordlist.length){ 
-            //         area.val(area.val() + wordlist[r] + " ");
-            //     }
-            // } else if (kana == 2) {
-            //     area.val(area.val() + wordlist2[r] + " ");
-            // } else if (kana == 1) {
-            //     area.val(area.val() + wordlist[r] + " ");
-            // }
+            if (kana == 3) {
+                if(r > wordlist.length) {
+                    area.val(area.val() + wordlist2[(r - wordlist.length)] + " ");
+                }
+                else if (r < wordlist.length){ 
+                    area.val(area.val() + wordlist[r] + " ");
+                }
+            } else if (kana == 2) {
+                area.val(area.val() + wordlist2[r] + " ");
+            } else if (kana == 1) {
+                area.val(area.val() + wordlist[r] + " ");
+            }
         }
     });
 });
